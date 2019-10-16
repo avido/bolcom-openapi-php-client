@@ -17,7 +17,7 @@ class ClientTest extends TestCase
     }
 
     /** @test */
-    public function appKey()
+    public function testAppKey()
     {
         $this->assertNotEquals(
             'YOUR_APP_KEY',
@@ -30,7 +30,7 @@ class ClientTest extends TestCase
     }
 
     /** @test */
-    public function getPingResponse()
+    public function testGetPingResponse()
     {
         $response = $this->client->getPingResponse();
 
@@ -39,11 +39,11 @@ class ClientTest extends TestCase
     }
 
     /** @test */
-    public function getProduct()
+    public function testGetProduct()
     {
         $response = $this->client->getProduct('9200000015051259');
 
         $this->assertObjectHasAttribute('products', $response);
-        $this->assertInternalType('array', $response->products);
+        $this->assertIsArray($response->products);
     }
 }
