@@ -46,4 +46,9 @@ class ClientTest extends TestCase
         $this->assertObjectHasAttribute('products', $response);
         $this->assertIsArray($response->products);
     }
+    public function testGetListing()
+    {
+        $response = $this->client->getLists([8299]);
+        $this->assertIsArray($response->products);
+    }
 }
